@@ -1,0 +1,60 @@
+{
+  "name": "cryptotrak",
+  "productName": "CryptoTrak",
+  "version": "1.0.0",
+  "description": "A desktop app that displays realtime prices for cryptocurrencies",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "node build.js",
+    "build-installer": "electron-builder",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=images/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --platform=win32 --arch=x64 --icon=images/icon_win.ico --prune=true --out=release-builds --version-string.PublisherName=CE --version-string.FileDescription=CE --version-string.ProductName=\"CryptoTrak\"",
+    "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=images/icon_win.png --prune=true --out=release-builds"
+  },
+  "repository": "https://github.com/DanielLvovsky/CryptoTrak",
+  "keywords": [
+    "Crypto",
+    "price",
+    "widget",
+    "bitcoin",
+    "ethereum"
+  ],
+  "build": {
+    "appId": "CryptoTrak",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "images/icon_win.ico",
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "installerIcon": "images/icon_win.ico",
+      "uninstallerIcon": "images/icon_win.ico",
+      "uninstallDisplayName": "CryptoTrak",
+      "license": "licence.txt",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "author": "Daniel Lvovsky",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^9.0.4",
+    "electron-builder": "^22.10.5",
+    "electron-packager": "^14.2.1",
+    "electron-winstaller": "^4.0.0"
+  },
+  "dependencies": {
+    "ava": "^3.8.2",
+    "cryptocurrencies": "^7.0.0",
+    "electron-settings": "^3.2.0",
+    "electron-window-state": "^5.0.3",
+    "html5sortable": "^0.9.17",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash.sortby": "^4.7.0",
+    "sortablejs": "^1.10.2",
+    "xo": "^0.32.0"
+  }
+}
